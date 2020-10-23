@@ -1,0 +1,16 @@
+body{
+    background-color: #78e3dd;
+    font-family: monospace;
+}
+
+#error{
+    color: #cf180c;
+    font-size: 60px;
+    position: absolute;
+    left: 40%;
+    top: 40%;
+}
+
+a{
+    font-size: 40px;
+}

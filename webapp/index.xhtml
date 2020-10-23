@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui" >
+
+<f:view>
+    <h:head>
+        <title>Start</title>
+        <h:outputStylesheet library="css" name="start.css"/>
+        <h:outputScript library="javascript" name="time.js" target="head"/>
+    </h:head>
+
+    <h:body id="body">
+        <div id = "container">
+
+            <div class = "header1">Лабораторная работа №3 по Веб-программированию</div>
+            <div class = "header2">Вариант №5101</div>
+            <div class = "header3">Студенты: Таскаев Артур, Краюхина Марина</div>
+            <div class = "header4">Группа: <span class="P3111"> P3211</span></div>
+
+
+            <a href="/views/secondPage.xhtml">Основная страница</a>
+
+        <div id = "currentDateTime">
+            <div id = "name">Текущая дата и время:</div>
+            <div id = "date"></div>
+            <div id = "time"></div>
+        </div>
+        </div>
+    </h:body>
+</f:view>
+
+</html>

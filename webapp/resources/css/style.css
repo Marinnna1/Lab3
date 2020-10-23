@@ -1,0 +1,164 @@
+body {
+     background: url("/resources/images/image_1.jpg") white;
+     height: 100%;
+}
+
+#container {
+     text-align: center;
+	 font-family: Arial;
+}
+
+header{
+	margin-top: 3px;
+}
+
+header > div {
+	 font-family: monospace;
+	 line-height: 1; 
+	 color: black;
+}
+
+.header1{
+	color: #4b9d12;
+	font-size: 20pt;
+	margin-top: 10px;
+}
+
+.header2{
+	color: #b506c4;
+	font-size: 15pt;
+}
+
+.header3{
+	margin-top: inherit;
+	color: #de1451;
+	font-size: 15pt;
+}
+
+.header4{
+	color: #cf180c;
+	font-size: 15pt;
+}
+
+.P3111:before{
+    text-decoration: line-through;
+    content: "P3111";
+	margin-top: inherit;
+}
+
+text{
+	font-size: 7pt;
+}
+
+
+#menu p {
+	font-size: 20px;
+	margin: 5px 0 0 0;
+}
+
+#sliderX{
+	margin-left: 44%;
+
+
+}
+#txt1 {
+	height: 15px;
+}
+
+input[name = "x"], input[name = "r"]{
+	width: 25px;
+	height: 20px;
+	background: #78e3dd;
+	color: black;
+}
+
+.greenButton {
+	border: 2px solid #51f536;
+}
+
+.redButton {
+	border: 2px solid red;
+}
+
+input[type = "text"]{
+	margin-top: 8px;
+	margin-bottom: 5px;
+	border: 2px solid #f6fb8e;
+}
+
+input[type = "submit"]{
+	background: #f4d65b;
+	border: 2px solid #e7698b;
+	margin-top: 8px;
+}
+
+input[type = "button"]{
+	margin-top: 8px;
+	margin-left: 15px;
+}
+
+.forY:focus-within{
+	background: #f6fb8e;
+}
+
+
+#answer {
+	text-align: center;
+	background: rgba(53,255,47,0.5);
+    width: 60%;
+    margin: 10px 0 0 20%; 
+	border-collapse: collapse;
+}
+
+#error{
+	margin-top: 5px;
+	color: red;
+}
+
+td, tr{
+	border: 2px solid black;
+}
+
+#bold {
+    font-weight: bold;
+}
+
+.col1 {
+	width: 25%;
+}
+
+.col2 {
+	width: 25%;
+}
+
+.col3 {
+	width: 25%;
+}
+
+.col4 {
+	width: 25%;
+}
+
+#currentAnswer {
+	width: 15%;
+	margin: auto;
+	background: rgba(68, 238, 255, 0.5);
+	border-collapse: collapse;
+	text-align: center;
+}
+
+.currentTable{
+	font-weight: bold;
+	font-size: 17px;
+	margin: 10px 0;
+	color: #ff55f6;
+}
+
+.rButton{
+	margin: 5px 10px;
+}
+
+
+
+ 
+ 

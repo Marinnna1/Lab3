@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core" xmlns:p="http://primefaces.org/ui">
+<f:view>
+    <h:head>
+        <title>Second Page Title</title>
+        <h:outputStylesheet library="css" name="style.css"/>
+        <h:outputScript library="javascript" name="main.js" target="head"/>
+        <h:outputScript library="javascript" name="coords.js" target="head"/>
+        <h:outputScript src="https://code.jquery.com/jquery-3.5.1.min.js" target="head"/>
+
+    </h:head>
+
+    <h:body>
+
+        <div id = "container">
+
+
+            <div class = "header1">Лабораторная работа №3 по Веб-программированию</div>
+            <div class = "header2">Вариант №5101</div>
+            <div class = "header3">Студенты: Краюхина Марина, Таскаев Артур</div>
+            <div class = "header4">Группа: <span class="P3111"> P3211</span></div>
+
+            <!--            <div id="graphic">-->
+
+            <!--                <ui:include src="/resources/incl/graphic.html" ></ui:include>-->
+            <!--            </div>-->
+
+            <h:form id="hiddenForm" style="display: none">
+                <h:inputHidden id="pointX" value="${dotsBean.coordX}"/>
+                <h:inputHidden id="pointY" value="${dotsBean.coordY}"/>
+                <h:inputHidden id="pointR" value="${dotsBean.coordR}"/>
+                <h:inputHidden type="hidden" id="isFromGraphic" value="#{dotsBean.isFromGraphic}"></h:inputHidden>
+                <h:commandButton id="submitSvg" action="#{dotsBean.drawDot()}">
+                    <f:ajax execute="hiddenForm" render="valuesTable"/>
+                </h:commandButton>
+            </h:form>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="250" height="250" id="graphic" onclick="tryf()">
+                <line x1="0" x2="250" y1="125" y2="125" stroke="black"></line>
+                <line x1="125" x2="125" y1="0" y2="250" stroke="black"></line>
+                <polygon points="125,0 120,10 130,10" stroke="black"></polygon>
+                <polygon points="250,125 240,130 240,120" stroke="black"></polygon>
+
+                <line x1="170" x2="170" y1="130" y2="120" stroke="black"></line>
+                <line x1="215" x2="215" y1="130" y2="120" stroke="black"></line>
+
+                <line x1="80"  x2="80"  y1="130" y2="120" stroke="black"></line>
+                <line x1="35" x2="35" y1="130" y2="120" stroke="black"></line>
+
+                <line x1="130" x2="120" y1="170" y2="170" stroke="black"></line>
+                <line x1="130" x2="120" y1="215"  y2="215"  stroke="black"></line>
+
+                <line x1="130" x2="120" y1="80" y2="80" stroke="black"></line>
+                <line x1="130" x2="120" y1="35" y2="35" stroke="black"></line>
+
+                <text class="draw_half_r" x="160" y="115">R/2</text>
+                <text class="draw_r" x="210" y="115">R</text>
+
+                <text class="draw_-r" x="30" y="115">-R</text>
+                <text class="draw_-half_r" x="80" y="115">-R/2</text>
+
+                <text class="draw_half_r" x="130" y="80">R/2</text>
+                <text class="draw_r" x="130" y="40">R</text>
+
+                <text class="draw_-half_r" x="130" y="172">-R/2</text>
+                <text class="draw_-r" x="130" y="220">-R</text>
+
+                <polygon points="125,125 125,170 215,170 215,125"
+                         fill="yellow" fill-opacity="0.2" stroke="yellow"></polygon>
+
+
+                <path d="M 125 80 A 50 50 90 0 0 80 125 L 125 125 Z"
+                      fill="#ed8fd8" fill-opacity="0.2" stroke="#ed8fd8"></path>
+
+                <polygon points="125,125 215,125 125,80"
+                         fill="#72f4ad" fill-opacity="0.4" stroke="#72f4ad"></polygon>
+
+            </svg>
+
+
+            <div>
+                <a href="/index.xhtml">Стартовая страница</a>
+            </div>
+
+
+            <div id = "menu">
+                <h:form id = "coord">
+
+                    <!--        //X-->
+                    <p > Значение Х:</p>
+                    <div id="sliderX">
+                        <input type="hidden" name="pointX" value="#{dotsBean.coordX}" id="xHiddenButton" ></input>
+                        <h:panelGrid columns="1" style="margin-bottom: 10px">
+                            <p:inputText id="txt1" value="#{dotsBean.newDot.x}" autocomplete="off" ></p:inputText>
+                            <p:slider for="txt1" id = "slider" minValue="-3" maxValue="3" />
+                        </h:panelGrid>
+                    </div>
+
+                    <!--        //Y-->
+                    <div>
+
+                        <p >
+                            <h:outputLabel for="textfieldY">Значение Y ∈ (-5;3):</h:outputLabel>
+                        </p>
+                        <h:inputText value="#{dotsBean.newDot.y}" id="textfieldY" name="y" maxlength = "7" autocomplete="off" ></h:inputText>
+                        <input type="hidden" name="pointY" value="#{dotsBean.coordY}" ></input>
+                    </div>
+
+                    <!--        //R-->
+                    <div>
+                        <p> Значение R:</p>
+
+                        <input type="hidden" name="pointR" value="#{dotsBean.coordR}" id="rHiddenButton"></input>
+                        <p:commandLink type="button" actionListener="#{dotsBean.toggle}" name="r" value="1" class="rButton" onclick="rButtonsValidate(this, 1)"></p:commandLink>
+                        <p:commandLink type="button" actionListener="#{dotsBean.toggle}" name="r" value="2" class="rButton" onclick="rButtonsValidate(this, 2)"></p:commandLink>
+                        <p:commandLink type="button" actionListener="#{dotsBean.toggle}" name="r" value="3" class="rButton" onclick="rButtonsValidate(this, 3)"></p:commandLink>
+                        <p:commandLink type="button" actionListener="#{dotsBean.toggle}" name="r" value="4" class="rButton" onclick="rButtonsValidate(this, 4)"></p:commandLink>
+                        <p:commandLink type="button" actionListener="#{dotsBean.toggle}" name="r" value="5" class="rButton" onclick="rButtonsValidate(this, 5)"></p:commandLink>
+
+                    </div>
+
+                    <div>
+                        <p>
+                            <h:commandButton id="sendForm" disabled="false" type="submit" value="Submit" action="#{dotsBean.checkData()}" onclick="drawFromForm()">
+                                <f:ajax execute="coord" render="valuesTable"  />
+                            </h:commandButton>
+                        </p>
+
+
+                    </div>
+                    <div id="error"></div>
+
+                    <h:message for="sendForm"/>
+                </h:form>
+
+
+                <div>
+
+                    <h:panelGroup id="valuesTable">
+                        <h:dataTable value="#{dotsBean.dots}" var="dot" id="answer">
+                            <h:column>
+                                <f:facet name="header">X</f:facet>
+                                #{dot.x}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Y</f:facet>
+                                #{dot.y.replace(',','.')}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">R</f:facet>
+                                #{dot.r}
+                            </h:column>
+
+                            <h:column>
+                                <f:facet name="header">Result</f:facet>
+                                #{dot.result}
+                            </h:column>
+                        </h:dataTable>
+                    </h:panelGroup>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</f:view>
+</html>
